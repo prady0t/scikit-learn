@@ -2,7 +2,6 @@ import re
 import warnings
 from functools import partial
 from itertools import chain, permutations, product
-import math
 
 import numpy as np
 import pytest
