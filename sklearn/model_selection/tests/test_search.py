@@ -2037,9 +2037,9 @@ def test_custom_run_search():
                 desired = np.ma.getmaskarray(exp_results[k]).astype(int)
                 actual = np.ma.getmaskarray(results[k]).astype(int)
                 if results[k].dtype.kind == "O":
-                    assert_array_equal(desired, actual, err_msg="Checking " + k)
+                    assert_array_equal(actual, desired, err_msg="Checking " + k)
                 else:
-                    assert_allclose(desired, actual, err_msg="Checking " + k)
+                    assert_allclose(actual, desired, err_msg="Checking " + k)
 
     def fit_grid(param_grid):
         return GridSearchCV(clf, param_grid, return_train_score=True).fit(X, y)
