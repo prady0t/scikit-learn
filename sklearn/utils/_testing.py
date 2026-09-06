@@ -222,7 +222,7 @@ def assert_array_less(x, y, err_msg="", check_shape=False, check_dtype=False):
     x = _convert_to_array(x, xp)
     y = _convert_to_array(y, xp)
 
-    xp_assert_less(
+    xpt.assert_less(
         x, y, err_msg=err_msg, check_shape=check_shape, check_dtype=check_dtype
     )
 
@@ -235,7 +235,7 @@ def assert_array_equal(
     actual = _convert_to_array(actual, xp)
     desired = _convert_to_array(desired, xp)
 
-    xp_assert_equal(
+    xpt.assert_equal(
         actual,
         desired,
         err_msg=err_msg,
@@ -277,7 +277,7 @@ def assert_allclose(
         if rtols != []:
             rtol = max(rtols)
 
-    xp_assert_close(
+    xpt.assert_close(
         actual,
         desired,
         rtol=rtol,
