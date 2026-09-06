@@ -2,6 +2,7 @@ import re
 import warnings
 from functools import partial
 from itertools import chain, permutations, product
+import math
 
 import numpy as np
 import pytest
@@ -736,8 +737,7 @@ def test_likelihood_ratios():
     # Build limit case with y_pred = y_true
     pos, neg = class_likelihood_ratios(y_true, y_true)
     assert_array_equal(pos, np.nan * 2)
-    assert_allclose(np.zeros(2), np.asarray(neg), rtol=1e-12)
-
+    math.isclose(neg, 0.0, rel_tol=1e-12)
     # Ignore last 5 samples to get tn=9, fp=3, fn=1, tp=2,
     # sensitivity=2/3, specificity=9/12, prevalence=3/20,
     # LR+=24/9, LR-=12/27
